@@ -33,7 +33,7 @@ public class MenuActivity extends Activity implements WearableListView.ClickList
                         (WearableListView) stub.findViewById(R.id.wearable_list);
 
 
-                String []elements = {"Bicep Curl", "Squat"};
+                String []elements = {"Bicep Curl", "Shoulder Flies"};
 
                 // Assign an adapter to the list
                 listView.setAdapter(new Adapter(getApplicationContext(), elements));
@@ -49,6 +49,9 @@ public class MenuActivity extends Activity implements WearableListView.ClickList
         switch(tag.intValue()) {
             case 0:
                 intent = new Intent(this, BicepCurlActivity.class);
+                break;
+            case 1:
+                intent = new Intent(this, ShoulderFlyActivity.class);
                 break;
             default:
                 // Do nothing
