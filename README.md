@@ -10,11 +10,11 @@ Table of Contents
 -----------------
 
 - [History](#history)
-- [Library](#Library)
-- [Data](#Data)
-- [Implementation](#Implementation)
-- [Exercises](#Exercises)
-- [Demo](#Demo)
+- [Library](#library)
+- [Data](#data)
+- [Implementation](#implementation)
+- [Exercises](#exercises)
+- [Demo](#demo)
 
 ## History
 
