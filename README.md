@@ -1,4 +1,4 @@
-** Note that this library is in early stages of development and not ready for production** 
+*** Note that this library is in early stages of development and not ready for production ***
 
 # Android Wear Lift 
 
