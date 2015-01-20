@@ -49,36 +49,36 @@ The rep-counter is controlled by an internal state machine that is specified by 
 
 Take the class `ExampleSensorEventListener` that extends `SensorEventListener`
 
-  public class ExampleSensorEventListener implements SensorEventListener {
-    ..
-    BicepCurlManager manager;
-    ..
-  }
+      public class ExampleSensorEventListener implements SensorEventListener {
+        ..
+        BicepCurlManager manager;
+        ..
+      }
   
 This class within its constructor must initialize `manager` in order to prepare ourselves for recording the next set of exercise data. So within `ExampleSensorEventListener`:
 
-  public ExampleSensorEventListener(... args ...) {
-    ..
-    ..
-     manager = new BicepCurlManager() {
-      @Override
-      protected void onRepIncrease() {
-        reps++;
-        textView.setText(Integer.toString(reps));
-        }
-      };
-  }
+      public ExampleSensorEventListener(... args ...) {
+        ..
+        ..
+         manager = new BicepCurlManager() {
+          @Override
+          protected void onRepIncrease() {
+            reps++;
+            textView.setText(Integer.toString(reps));
+            }
+          };
+      }
   
 As you may have noticed `onRepIncrease()` is a function that we force you to implement. What it is responsible for is ensuring that at the completion of every rep cycle you will be able to execute your own custom code. In the case of th example above, this is to update the value of a `reps` variable and set its text to a TextView to display to the user.
 
 In order to power our internal state machine we need to provide `BicepCurlManager` with the appropriate data. We do this by the `updateEvent` method which allows us to pass a `SensorEvent` to it and interpret it to see things such as the current position, acceleration, etc. In the case of our current example, we would implement the following code:
 
-  @Override
-  public void onSensorChanged(SensorEvent event) {
-    if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-      manager.updateEvent(event);
-    }
-  }
+      @Override
+      public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+          manager.updateEvent(event);
+        }
+      }
 
 Currently you are responsible for ensuring the appropriate values, i.e. if it requires accelerometer sensor values then you should updateEvent which `getType()` is an accelerometer. This will likely change soon as we update the library to do this sort of thing for you. The documentation will be updated soon to specify which event values are required for each Manager.
 
