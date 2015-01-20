@@ -6,27 +6,27 @@ import android.hardware.SensorEventListener;
 import android.util.Log;
 import android.widget.TextView;
 
-import karanandfriends.androidwearlift.exercises.BicepCurlManager;
+import karanandfriends.androidwearlift.exercises.ShoulderFlyManager;
 
 /**
- * Created by karan on 18/01/15.
+ * Created by anthonyluu on 15-01-19.
  */
-public class CurvedAlgorithmListener implements SensorEventListener {
+public class ShoulderCurvedAlgorithmListener implements SensorEventListener {
     TextView textView;
 
     float upper_threshold;
     float lower_threshold;
 
-    BicepCurlManager manager;
+    ShoulderFlyManager manager;
     int reps;
 
-    public CurvedAlgorithmListener(final TextView textView, float upper_threshold, float lower_threshold) {
+    public ShoulderCurvedAlgorithmListener(final TextView textView, float upper_threshold, float lower_threshold) {
         this.textView = textView;
         this.upper_threshold = upper_threshold;
         this.lower_threshold = lower_threshold;
 
         reps = 0;
-        manager = new BicepCurlManager() {
+        manager = new ShoulderFlyManager() {
             @Override
             protected void onRepIncrease() {
                 reps++;

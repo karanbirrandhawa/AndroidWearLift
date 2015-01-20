@@ -8,8 +8,10 @@ import android.support.wearable.view.WatchViewStub;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-public class BicepCurlActivity extends Activity {
-
+/**
+ * Created by anthonyluu on 15-01-19.
+ */
+public class ShoulderFlyActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class BicepCurlActivity extends Activity {
 
                 Sensor sensor = sensorService.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-                BicepCurvedAlgorithmListener listener = new BicepCurvedAlgorithmListener(repCount, 8.0f, 0.0f);
+                ShoulderCurvedAlgorithmListener listener = new ShoulderCurvedAlgorithmListener(repCount, 8.0f, 0.0f);
 
                 sensorService.registerListener(listener,
                         sensorService.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
