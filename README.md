@@ -85,7 +85,19 @@ This algorithm also applies to:
 
 In the example above, we showed you an example implementation of BicepCurlManager, which tries to track a user's movement and data during a bicep curl exercise. This was the first algorithm we developed and is heavily supported by the Android gravity sensor.
 
-The logic behind this can be explained a little better after we introduce our selves to the way normal sensors work on an Android device.
+The logic behind this can be explained a little better after we introduce our selves to the way normal sensors work on an Android device. In an Android device the x-axis is defined as the axis that runs along the horizontal of the phone while it is in its default orientation. So for example if we placed a Nexus 4/5 device on a table. The x axis would be coming out of the left and right sides, the right side being the positive x axis. The positive z-axis is defined as coming out of the screen with the negative z-axis going through the back of the phone. The y-axis is the cross product of the two. In order to easily explain this to ourselves during our research we drew a small diagram to detail it:
+
+[Diagram1](Rough_Notes/watch_axes.jpeg)
+
+Realizing the nature of an Android device's orientation we can consider the movement of a normal bicep curl. As the user moves their forearm downwards, the x-axis will change position as well. While the forearm is parallel to the body the x-axis is parallel to the body. While the forearm is diagonal to the body, so is the x-axis. We realize that we can equate the direction of x-axis with the forearm of the user, a very usuful fact when analyzing an exercise like the bicep curl where the movement happens along with the forearm. Once again, in order to easily understand this we drew a small diagram of it: 
+
+[Diagram2](Rough_Notes/watch_orientation.jpeg)
+
+The next thing that we consider is gravity, which we consider to be directed "downwards" towards the ground. Using that logic we realize that there will always be a component of gravity that will lie along our x-axis, ranging from 9.81 to 0 (relatively) as our x-axis varies from facing "downwards" to perpindicular to our body to "upwards". Using this change in the value of the component of gravity on the x-axis, we can obtain a good measure for the subject's change in position along our path.
+
+That is to say, using the device's change orientation (mapped out via gravity), we can track where the watch may be within its current rep. If the component of gravity along the x-axis is 9.81 then the arm is being held parallel to the body (either "upwards" or "downwards").  If the component of gravity along the x-axis is less than 9.81 but greater than zero then we can determine that it is diagonal to the body in some way. Once the value is zero then the arm is held perpindicular to the body and the component of gravity acting along the x-axis is zero. During this cycle the positive or negative value will indicate whether the arm is lying above the perpindicular "zero" point or below it, depending on the implementation, allowing us to easily plot out the movement of the arm in terms of a half-circle.
+
+This allows for mathematical modelling of the bicep curl exercise and many other curved exercises due to the nature of this algorithm being useful to them.
 
 ## Data
 
