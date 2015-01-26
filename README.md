@@ -87,11 +87,11 @@ In the example above, we showed you an example implementation of BicepCurlManage
 
 The logic behind this can be explained a little better after we introduce our selves to the way normal sensors work on an Android device. In an Android device the x-axis is defined as the axis that runs along the horizontal of the phone while it is in its default orientation. So for example if we placed a Nexus 4/5 device on a table. The x axis would be coming out of the left and right sides, the right side being the positive x axis. The positive z-axis is defined as coming out of the screen with the negative z-axis going through the back of the phone. The y-axis is the cross product of the two. In order to easily explain this to ourselves during our research we drew a small diagram to detail it:
 
-[Diagram1](Rough_Notes/watch_axes.jpeg)
+[Diagram1](Rough_Notes/watch_axes.jpg)
 
 Realizing the nature of an Android device's orientation we can consider the movement of a normal bicep curl. As the user moves their forearm downwards, the x-axis will change position as well. While the forearm is parallel to the body the x-axis is parallel to the body. While the forearm is diagonal to the body, so is the x-axis. We realize that we can equate the direction of x-axis with the forearm of the user, a very usuful fact when analyzing an exercise like the bicep curl where the movement happens along with the forearm. Once again, in order to easily understand this we drew a small diagram of it: 
 
-[Diagram2](Rough_Notes/watch_orientation.jpeg)
+[Diagram2](Rough_Notes/watch_orientation.jpg)
 
 The next thing that we consider is gravity, which we consider to be directed "downwards" towards the ground. Using that logic we realize that there will always be a component of gravity that will lie along our x-axis, ranging from 9.81 to 0 (relatively) as our x-axis varies from facing "downwards" to perpindicular to our body to "upwards". Using this change in the value of the component of gravity on the x-axis, we can obtain a good measure for the subject's change in position along our path.
 
