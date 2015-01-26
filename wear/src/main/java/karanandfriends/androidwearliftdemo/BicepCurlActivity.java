@@ -26,13 +26,13 @@ public class BicepCurlActivity extends Activity {
                         (SensorManager) getApplicationContext()
                                 .getSystemService(getApplicationContext().SENSOR_SERVICE);
 
-                Sensor sensor = sensorService.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+                Sensor sensor = sensorService.getDefaultSensor(Sensor.TYPE_GRAVITY);
 
                 BicepCurvedAlgorithmListener listener = new BicepCurvedAlgorithmListener(repCount, 8.0f, 0.0f);
 
                 sensorService.registerListener(listener,
-                        sensorService.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-                        SensorManager.SENSOR_DELAY_NORMAL);
+                        sensorService.getDefaultSensor(Sensor.TYPE_GRAVITY),
+                        SensorManager.SENSOR_DELAY_FASTEST);
 
             }
         });

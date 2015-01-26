@@ -40,7 +40,7 @@ public class ShoulderCurvedAlgorithmListener implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+        if (event.sensor.getType() == Sensor.TYPE_GRAVITY) {
             manager.updateEvent(event);
         } else if (event.sensor.getType() == Sensor.TYPE_ROTATION_VECTOR) {
 
